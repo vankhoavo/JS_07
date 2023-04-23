@@ -1,12 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+  <title>Hello, world!</title>
 </head>
+
 <body>
-    
+  <div class="container mt-5">
+    <div class="col-md-12 mb-3">
+      <div class="row">
+        <div class="col">
+          <label>Điểm Toán</label>
+          <input class="form-control" type="number" step="0.1" min="0" max="10" placeholder="Nhập điểm Toán"
+            id="diem_toan">
+        </div>
+        <div class="col">
+          <label>Điểm Lý</label>
+          <input class="form-control" type="number" step="0.1" min="0" max="10" placeholder="Nhập điểm Lý" id="diem_ly">
+        </div>
+        <div class="col">
+          <label>Điểm Hoá</label>
+          <input class="form-control" type="number" step="0.1" min="0" max="10" placeholder="Nhập điểm Hoá"
+            id="diem_hoa">
+        </div>
+      </div>
+      <div class="col-md-12 text-right mt-3">
+        <button class="btn btn-primary" onclick="tinhDiemTrungBinh()">Tính Điểm Trung Bình</button>
+      </div>
+    </div>
+    <div class="alert alert-primary" role="alert" id="message">
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var x = 5;
+    var y = 'Khoá 7';
+    var z = [3, 5, 7, 9];
+    var sv = {
+      'id': 191275,
+      'name': 'Võ Văn Khoa',
+      'class': 'Khoá 07',
+    };
+
+    function tinhDiemTrungBinh() {
+      var x = document.getElementById("diem_toan").value;
+      var y = document.getElementById("diem_ly").value;
+      var z = document.getElementById("diem_hoa").value;
+      var tb = (x * 1 + y * 1 + z * 1) / 3
+
+      document.getElementById("message").innerHTML = "Điểm Trung Bình: " + tb + " và Xếp Loại: " + tinhXepLoai(tb);
+    }
+
+    function tinhXepLoai(trungBinh) {
+      if (trungBinh >= 8) {
+        return "Giỏi";
+      } else if (trungBinh >= 6) {
+        return "Khá";
+      } else if (trungBinh >= 4) {
+        return "Trung Bình";
+      } else {
+        return "Yếu";
+      }
+    }
+
+    // document.write('Biến x: ' + x);
+    // document.write('<br>');
+    // document.write('Giá trị y: ' + y);
+    // console.log('Biến x: ' + x);
+    // console.log('Giá trị y: ' + y);
+
+    // document.write(z[2]);
+    // document.write('<br>');
+    // document.write(sv.name);
+
+    // alert('Chào mừng bạn đã đến với Website này');
+    // if(confirm('Bạn có chắc chắn truy cập vào Website không?')){
+    //   document.write('Chào mừng bạn đã đến với Website này');
+    // } else {
+    //   document.write('Tạm biệt bạn 1 thời gian nhé!');
+    // }
+
+    // if (res = prompt('Năm nay bạn đã bao nhiêu tuổi?')) {
+    //   if (res > 65) {
+    //     document.write('Bạn nên dừng cuộc chơi tại đây');
+    //   } else if (res >= 18) {
+    //     document.write('Bạn đủ tuổi để chơi');
+    //   } else {
+    //     document.write('Bạn quá nhỏ tuổi để làm việc này');
+    //   }
+    // } else {
+    //   document.write('Tôi rất tiếc tại sao bạn không cho tôi biết số tuổi của bạn!');
+    // }
+  </script>
 </body>
+
 </html>
