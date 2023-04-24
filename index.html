@@ -9,6 +9,13 @@
 </head>
 
 <body>
+    <div class="container mt-5">
+      <div class="alert alert-primary" role="alert">
+        <a class="btn btn-danger" href="" id="download"></a>
+      </div>
+    </div>
+
+
   <div class="container mt-5">
     <div class="col-md-12 mb-3">
       <div class="row">
@@ -35,11 +42,116 @@
 
     </div>
   </div>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-5">
+        <div class="card">
+          <div class="card-header">
+            Nhập Thông Tin Tử Vi
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Họ và Tên</label>
+              <input type="text" id="input_ten" placeholder="Nhập họ và tên" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Năm Sinh</label>
+              <input type="text" id="input_ten_nam_sinh" placeholder="Nhập năm sinh" class="form-control">
+            </div>
+          </div>
+          <div class="card-footer text-right">
+            <button class="btn btn-primary" onclick="tinhTuVi()">Tính Tử vi</button>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="card">
+          <div class="card-header">
+            Thông Tin Tử Vi
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered">
+              <tr>
+                <th>Họ và Tên</th>
+                <td id="show_ho_va_ten"></td>
+              </tr>
+              <tr>
+                <th>Số Tuổi</th>
+                <td id="show_tuoi"></td>
+              </tr>
+              <tr>
+                <th>Con Giáp</th>
+                <td id="show_con_giap"></td>
+              </tr>
+              <tr>
+                <th>Tuổi Hợp</th>
+                <td id="show_tuoi_hop"></td>
+              </tr>
+              <tr class="text-center">
+                <td colspan="100%">
+                    <img id="show_hinh_anh" src="" class="img-fluid">
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+  
+    var thoiGian = 10;
+    var link      = "https://google.com";
+
+    var z   = document.getElementById("download");
+
+    setInterval(function() {
+      if(thoiGian>0){
+        thoiGian--;
+        z.innerHTML = "Vui lòng chờ đợi sau " + thoiGian + "s";
+      } else {
+        z.innerHTML = "Download";
+        z.href      = link;
+      }
+    }, 1000);
+
+
+
+    function tinhTuVi() {
+      var name = document.getElementById("input_ten").value;
+      document.getElementById("show_ho_va_ten").innerText = name;
+
+      var year = document.getElementById("input_ten_nam_sinh").value;
+      var tuoi = 2023 - year;
+      document.getElementById("show_tuoi").innerText = tuoi;
+
+      var con_giap = tinhCanChi(year);
+      document.getElementById("show_con_giap").innerText = con_giap;
+
+      var tuoi_hop = "Tuổi " + tinhChi(year - 4) + " và Tuổi " + tinhChi(year + 4);
+      document.getElementById("show_tuoi_hop").innerText = tuoi_hop;
+
+      var hinh_anh = (year%12) + '.png';
+      document.getElementById("show_hinh_anh").src = hinh_anh;
+    }
+
+    function tinhChi(year) {
+      var chi = ['Thân', 'Dậu', 'Tuất', 'Hợi', 'Tý', 'Sửu', 'Dần', 'Mẹo', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi'];
+      return chi[year%12];
+    }
+
+    function tinhCanChi(year) {
+      var can = ['Canh', 'Tân', 'Nhâm', 'Quý', 'Giáp', 'Ất', 'Bính', 'Đinh', 'Mậu', 'Kỷ'];
+      var chi = ['Thân', 'Dậu', 'Tuất', 'Hợi', 'Tý', 'Sửu', 'Dần', 'Mẹo', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi'];
+      return can[year%10] + ' ' + chi[year%12];
+    }
+
     var x = 5;
-    var y = 'Khoá 7';
+    var y = 'Chào mừng bạn đã đến với khoá học này';
     var z = [3, 5, 7, 9];
     var sv = {
       'id': 191275,
@@ -47,13 +159,38 @@
       'class': 'Khoá 07',
     };
 
+    console.log(y.length);
+    console.log(y.indexOf('mừng'));
+    console.log(y.lastIndexOf('mừng'));
+    // console.log(y.slice(14,17));
+    console.log(y.substring(14,3));
+    console.log(y.toLowerCase());
+
+    // setTimeout(function(){
+    //   alert("Chào mừng bạn đã đến với Website này!");
+    // }, 10000);
+    // z.pop();
+    // z.push(11);
+    // z.push(30);
+
+    // z.unshift(1,8,7);
+    // console.log(z);
+    // z.splice(2,3);
+    // console.log(z.reverse());
+
+    // console.log(z.join('.'));
+    // console.log(z.length);
+    // for(i = 0; i< z.length; i++){
+    //   console.log("Phần tử: " + z[i]);
+    // }
+
     function tinhDiemTrungBinh() {
       var x = document.getElementById("diem_toan").value;
       var y = document.getElementById("diem_ly").value;
       var z = document.getElementById("diem_hoa").value;
       var tb = (x * 1 + y * 1 + z * 1) / 3
-
-      document.getElementById("message").innerHTML = "Điểm Trung Bình: " + tb + " và Xếp Loại: " + tinhXepLoai(tb);
+      var content = "Điểm Trung Bình: " + tb + " và Xếp Loại: " + tinhXepLoai(tb)
+      document.getElementById("message").innerHTML = content;
     }
 
     function tinhXepLoai(trungBinh) {
@@ -79,6 +216,7 @@
     // document.write(sv.name);
 
     // alert('Chào mừng bạn đã đến với Website này');
+    
     // if(confirm('Bạn có chắc chắn truy cập vào Website không?')){
     //   document.write('Chào mừng bạn đã đến với Website này');
     // } else {
