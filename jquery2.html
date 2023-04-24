@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <title>Hello World!</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row mb-2">
+            <div class="col-md-2">
+                <input type="text" placeholder="Nhập mã sinh viên" id="msv" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <input type="text" placeholder="Nhập họ và tên" id="fullname" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <input type="text" placeholder="Nhập điểm môn 1" id="diem1" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <input type="text" placeholder="Nhập điểm môn 2" id="diem2" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <input type="text" placeholder="Nhập điểm môn 3" id="diem3" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary btn-block" id="addStudent">Add</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <table class="table table-bordered" id="listStudent">
+                    <thead>
+                        <tr>
+                            <th class="text-center align-middle">#</th>
+                            <th class="text-center align-middle">Mã Sinh Viên</th>
+                            <th class="text-center align-middle">điểm môn 1</th>
+                            <th class="text-center align-middle">Môn 1</th>
+                            <th class="text-center align-middle">Môn 2</th>
+                            <th class="text-center align-middle">Môn 3</th>
+                            <th class="text-center align-middle">Điểm Trung Bình</th>
+                            <th class="text-center align-middle">Xếp Loại</th>
+                            <th class="text-center align-middle">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td class="text-center align-middle">1</td>
+                            <td class="text-center align-middle">GCD191275</td>
+                            <td class="text-center align-middle">Võ Văn Khoa</td>
+                            <td class="text-center align-middle">2</td>
+                            <td class="text-center align-middle">3</td>
+                            <td class="text-center align-middle">5</td>
+                            <td class="text-center align-middle">9.3</td>
+                            <td class="text-center align-middle">Khá</td>
+                            <td class="text-center align-middle">
+                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-primary">Update</button>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+
+    $("#addStudent").click(function () {
+        var msv_get = $("#msv").val();
+        var fullname_get = $("#fullname").val();
+        var diem1_get = $("#diem1").val();
+        var diem2_get = $("#diem2").val();
+        var diem3_get = $("#diem3").val();
+        var sinhVien = { 'msv': msv_get, 'name': fullname_get, 'mon_1': diem1_get, 'mon_2': diem2_get, 'mon_3': diem3_get };
+        console.log(sinhVien);
+        a.push(sinhVien);
+        loadTable();
+    });
+
+    var a = [
+        { 'msv': 1234, 'name': 'Võ Văn Khoa', 'mon_1': 4, 'mon_2': 6, 'mon_3': 9 },
+        { 'msv': 1321, 'name': 'Võ Văn Toàn', 'mon_1': 5, 'mon_2': 7, 'mon_3': 10 },
+        { 'msv': 4567, 'name': 'Võ Văn Lân', 'mon_1': 6, 'mon_2': 8, 'mon_3': 9 },
+        { 'msv': 9856, 'name': 'Võ Chánh Trung', 'mon_1': 3, 'mon_2': 9, 'mon_3': 4 },
+        { 'msv': 1245, 'name': 'Võ An Ninh', 'mon_1': 7, 'mon_2': 2, 'mon_3': 8 },
+        { 'msv': 7852, 'name': 'Võ Hồ Lâm Viên', 'mon_1': 10, 'mon_2': 10, 'mon_3': 9 },
+    ];
+
+    loadTable();
+
+    // function loadTable() {
+    //     var content = '';
+    //     for (i = 0; i < a.length; i++) {
+    //         content += '<tr>';
+    //         content += '<td class="text-center align-middle">' + (i + 1) + '</td>';
+    //         content += '<td class="text-center align-middle">' + a[i].msv + '</td>';
+    //         content += '<td class="text-center align-middle">' + a[i].name + '</td>';
+    //         content += '<td class="text-center align-middle">' + a[i].mon_1 + '</td>';
+    //         content += '<td class="text-center align-middle">' + a[i].mon_2 + '</td>';
+    //         content += '<td class="text-center align-middle">' + a[i].mon_3 + '</td>';
+    //         content += '<td class="text-center align-middle">' + tinhTrungBinh(a[i].mon_1, a[i].mon_2, a[i].mon_3) + '</td>';
+    //         content += '<td class="text-center align-middle">' + xepLoai(a[i].mon_1, a[i].mon_2, a[i].mon_3) + '</td>';
+    //         content += '<td class="text-center align-middle">';
+    //         content += '<button class="btn btn-danger mr-1">Delete</button>';
+    //         content += '<button class="btn btn-primary">Update</button>';
+    //         content += '</td>';
+    //         content += '</tr>';
+    //     }
+    //     $("#listStudent tbody").append(content);
+    // }
+
+    function loadTable() {
+        var content = '';
+        // for (i = 0; i < a.length; i++) {
+        $.each(a, function (k, v) {
+            content += '<tr>';
+            content += '<td class="text-center align-middle">' + (k + 1) + '</td>';
+            content += '<td class="text-center align-middle">' + v.msv + '</td>';
+            content += '<td class="text-center align-middle">' + v.name + '</td>';
+            content += '<td class="text-center align-middle">' + v.mon_1 + '</td>';
+            content += '<td class="text-center align-middle">' + v.mon_2 + '</td>';
+            content += '<td class="text-center align-middle">' + v.mon_3 + '</td>';
+            content += '<td class="text-center align-middle">' + tinhTrungBinh(v.mon_1, v.mon_2, v.mon_3) + '</td>';
+            content += '<td class="text-center align-middle">' + xepLoai(v.mon_1, v.mon_2, v.mon_3) + '</td>';
+            content += '<td class="text-center align-middle">';
+            content += '<button class="btn btn-danger mr-1 remove" data-key="' + k + '">Delete</button>';
+            content += '<button class="btn btn-primary">Update</button>';
+            content += '</td>';
+            content += '</tr>';
+        });
+        // $("#listStudent tbody").append(content);
+        $("#listStudent tbody").html(content);
+    }
+
+    function tinhTrungBinh(a, b, c) {
+        var tb = (a * 1 + b * 1 + c * 1) / 3
+        return tb.toFixed(1);
+    }
+
+    function xepLoai(a, b, c) {
+        var tb = (a * 1 + b * 1 + c * 1) / 3
+        if (tb > 8) {
+            return "Giỏi";
+        } else if (tb >= 6.5) {
+            return "Khá";
+        } else if (tb >= 5) {
+            return "Trung Bình";
+        } else if (tb >= 3.5) {
+            return "Yếu";
+        } else {
+            return "Kém";
+        }
+    }
+
+    $("body").on("click", ".remove", function () {
+        var dele = $(this).data("key");
+        // console.log(dele);
+        a.splice(dele, 1);
+        loadTable();
+    });
+</script>

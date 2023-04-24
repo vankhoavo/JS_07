@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <title>Hello World!</title>
+</head>
+
+<body>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    var a = [
+        2,
+        [100, 200],
+        5,
+        10,
+        [
+            [
+                { 'msv': 1234, 'name': 'Van Khoa', 'age': 22 },
+                { 'msv': 'gcd191275', 'name': 'Van Toan', 'age': 52 },
+            ],
+            [
+                { 'msv': '4546789', 'name': 'Nam Mô A Di Đà Phật', 'age': 52 },
+            ],
+            [
+                { 'msv': '789456', 'name': 'Thứ 7 máu chảy về tim', 'age': 52 },
+            ],
+        ],
+        20,
+        {
+            'msv': 1234,
+            'name': 'Van Khoa',
+            'age': 22,
+        },
+        {
+            'msv': 1234,
+            'name': {
+                'msv': 'GCD191275',
+                'fullname': 'Võ Văn Khoa',
+            },
+            'age': 22,
+        },
+    ];
+
+
+
+    console.log(a[4][1][0].name);
+
+    for (i = 0; i < a.length; i++) {
+        console.log(a[i]);
+    }
+
+    var sv_1 = {
+        'msv': 1234,
+        'name': 'Van Khoa',
+        'age': 22,
+    };
+
+    console.log(sv_1.name);
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <title>Hello World!</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="alert alert-primary" role="alert">
+            <p id="message"></p>
+        </div>
+    </div>
+    <div class="container mt-1">
+        <div class="row">
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="fullname" placeholder="Nhập vào họ và tên">
+            </div>
+            <!-- <div class="col-md-2">
+                <button class="form-control btn btn-primary" id="clickbutton">Click</button>
+            </div> -->
+            <!-- <div class="col-md-12 mt-2">
+                <textarea class="form-control" placeholder="Khu Vực Làm Bài Thi" id="exmple" cols="30"
+                    rows="20"></textarea>
+            </div> -->
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+
+    $("#fullname").keyup(function () {
+        var content = "Chào bạn, <b>" + $("#fullname").val() + "</b>";
+        $("#message").html(content);
+    });
+
+    var a = [
+        { 'msv': 1234, 'name': 'Võ Văn Khoa', 'mon_1': 4, 'mon_2': 6, 'mon_3': 9 },
+        { 'msv': 1321, 'name': 'Võ Văn Toàn', 'mon_1': 5, 'mon_2': 7, 'mon_3': 10 },
+        { 'msv': 4567, 'name': 'Võ Văn Lân', 'mon_1': 6, 'mon_2': 8, 'mon_3': 1 },
+        { 'msv': 9856, 'name': 'Võ Chánh Trung', 'mon_1': 3, 'mon_2': 9, 'mon_3': 4 },
+        { 'msv': 1245, 'name': 'Võ An Ninh', 'mon_1': 7, 'mon_2': 2, 'mon_3': 8 },
+        { 'msv': 7852, 'name': 'Võ Hồ Lâm Viên', 'mon_1': 2, 'mon_2': 10, 'mon_3': 3 },
+    ];
+
+    // console.log(a[1].name);
+
+    for (i = 0; i < a.length; i++) {
+        console.log(a[i].msv);
+    }
+
+    $.each(a, function(k,v){
+        console.log(v.name);
+    });
+
+    // $("#clickbutton").dblclick(function () {
+    //     // console.log("Bạn vừa click vào rồi đó");
+    //     alert("Bạn vừa click vào rồi đó");
+    // });
+    // $("#exmple").focus(function(){
+    //     console.log("Thí Sinh Bắt Đầu Làm Bài");
+    //     alert("Thí Sinh Bắt Đầu Làm Bài");
+    // });
+    // $("#fullname").blur(function(){
+    //     var content = $("#fullname").val();
+    //     // var content = $(this).val(); //Có thể viết theo cách này bởi vì this ở đây được gọi là chính nó.
+    //     console.log("Tôi tên là: " + content);
+    // });
+
+    // $("#fullname").keyup(function () {
+    //     var content = $("#fullname").val();
+    //     // var content = $(this).val(); //Có thể viết theo cách này bởi vì this ở đây được gọi là chính nó.
+    //     console.log("Tôi tên là: " + content);
+    // });
+</script>
